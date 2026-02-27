@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: concesionario_mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: concesionario
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: concesionario_backend
+    volumes:
+      - ./backend:/var/www
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    container_name: concesionario_frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app
+    command: npm start
+
+volumes:
+  mysql_data:
