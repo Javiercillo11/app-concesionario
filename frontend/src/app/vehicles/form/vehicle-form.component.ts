@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [CommonModule, FormsModule, MatInputModule, MatButtonModule, MatCardModule],
   templateUrl: './vehicle-form.component.html',
-  styleUrls: ['./vehicle-form.component.css']
+  styleUrls: ['./vehicle-form.component.scss']
 })
 export class VehicleFormComponent {
   brand = '';

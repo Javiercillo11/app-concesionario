@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule],
   templateUrl: './vehicle-detail.component.html',
-  styleUrls: ['./vehicle-detail.component.css']
+  styleUrls: ['./vehicle-detail.component.scss']
 })
 export class VehicleDetailComponent implements OnInit {
   vehicle!: Vehicle;
