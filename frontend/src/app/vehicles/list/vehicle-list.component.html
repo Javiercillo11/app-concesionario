@@ -1,0 +1,22 @@
+    <mat-toolbar color="primary">
+      <span>Concesionario</span>
+      <span class="spacer"></span>
+      <button mat-button routerLink="/vehicles/create" *ngIf="isAdmin">Crear Vehículo</button>
+      <button mat-button routerLink="/login">Login</button>
+    </mat-toolbar>
+
+    <div class="vehicle-container">
+      <mat-card *ngFor="let v of vehicles" class="vehicle-card">
+        <mat-card-header>
+          <mat-card-title>{{v.brand}} {{v.model}}</mat-card-title>
+          <mat-card-subtitle>Año: {{v.year}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{v.description}}</p>
+          <p><strong>Precio:</strong> ${{v.price}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" [routerLink]="['/vehicles', v.id]">Ver detalle</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
